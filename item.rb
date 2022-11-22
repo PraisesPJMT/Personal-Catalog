@@ -2,7 +2,7 @@ class Item
   attr_accessor :publish_date
   attr_reader :id, :archived
 
-  def initialize(publish_date, id = Random.rand(1_000), archived: false)
+  def initialize(publish_date, id = Random.rand(1..1_000), archived: false)
     @id = id
     @publish_date = publish_date
     @archived = archived
@@ -10,17 +10,17 @@ class Item
 
   def genre=(genre)
     @genre = genre
-    genre.item << self unless genre.item.include?(genre)
+    genre.items << self unless genre.items.include?(genre)
   end
 
   def label=(label)
     @genre = label
-    label.item << self unless label.item.include?(label)
+    label.items << self unless label.items.include?(label)
   end
 
   def author=(author)
     @author = author
-    author.item << self unless author.item.include?(author)
+    author.items << self unless author.items.include?(author)
   end
 
   def move_to_archive
