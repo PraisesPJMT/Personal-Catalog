@@ -1,4 +1,5 @@
 require './item'
+require 'date'
 
 # create game class
 class Game < Item
@@ -11,6 +12,8 @@ class Game < Item
   end
 
   # return true if parent's method returns true AND if last_played_at is older than 2 years
+  private
+
   def can_be_archived?
     super && Date.today.year - Date.parse(@last_played_at).year > 2
   end
