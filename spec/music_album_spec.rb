@@ -1,5 +1,7 @@
 require_relative '../music_album'
+require_relative '../genre'
 require_relative '../author'
+# require_relative '../label'
 
 describe MusicAlbum do
   context 'Instance of MusicAlbum could be created:' do
@@ -28,10 +30,6 @@ describe MusicAlbum do
     it '@publish_date attribute should match MusicAlbum publish_date argument' do
       expect(music_album.publish_date).to eq '2022-11-21'
     end
-
-    # it '@archived attribute should match MusicAlbum archived argument' do
-    #   expect(music_album.archived).to eq true
-    # end
   end
 
   context 'MusicAlbum instance could be created without optional arguments:' do
