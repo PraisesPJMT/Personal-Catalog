@@ -33,23 +33,8 @@ CREATE TABLE authors (
  last_name VARCHAR(150) NOT NULL,
  item_id INT REFERENCES item(id)
 );
-/* Personal Item Catalogue Database
-*/
 
-
-/* Creating 'Genre' table in 'catalog_of_things' database
-   Table has columns: id, and name
-   Constraints: id as the primary key
-*/
 CREATE TABLE genre(
     id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     name VARCHAR(100)
-);
-
--- create authors table
-CREATE TABLE authors (
- id SERIAL PRIMARY KEY,
- first_name VARCHAR(150) NOT NULL,
- last_name VARCHAR(150) NOT NULL,
- item_id INT REFERENCES item(id)
 );
