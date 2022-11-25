@@ -41,6 +41,9 @@ CREATE TABLE music_album(
 CREATE TABLE games (
  id SERIAL PRIMARY KEY,
  multiplayer INT,
+ genre_id      INT,
+ author_id     INT,
+ label_id      INT,
  last_played_at DATE NOT NULL,
  publish_date DATE NOT NULL,
  archived BOOLEAN
