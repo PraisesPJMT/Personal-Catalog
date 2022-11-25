@@ -1,5 +1,4 @@
-require_relative '../genre'
-require_relative '../item'
+require_relative '../helper'
 
 describe Genre do
   context 'Instance of Genre could be created:' do

@@ -1,5 +1,4 @@
-require_relative './item'
-require 'date'
+require_relative '../../helper'
 
 class Label
   attr_accessor :title, :color

@@ -1,8 +1,4 @@
-require_relative 'create_module'
-require_relative 'list_associate_module'
-require_relative 'list_items_module'
-require_relative 'storage_module'
-require_relative 'import_module'
+require_relative '../helper'
 
 class Catalog
   include Create

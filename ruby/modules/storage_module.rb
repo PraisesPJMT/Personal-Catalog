@@ -1,5 +1,4 @@
-require 'json'
-require 'fileutils'
+require_relative '../../helper'
 
 module Storage
   def store_genres

@@ -1,7 +1,4 @@
-require_relative '../item'
-require_relative '../author'
-require_relative '../genre'
-# require_relative '../label'
+require_relative '../helper'
 
 describe Item do
   context 'Instance of Item could be created:' do
@@ -84,14 +81,14 @@ describe Item do
       expect(rock_genre.items.include?(test_item)).to eq true
     end
 
-    # it 'Instance of Label should could be assign to instance of Item' do
-    #   red_label = Label.new('Roses', 'Rose red')
-    #   test_item.label = red_label
-    #   expect(red_label.items.include?(test_item)).to eq true
-    #   sky_label = Label.new('Sky', 'Sky blue')
-    #   test_item.label = sky_label
-    #   expect(sky_label.items.include?(test_item)).to eq true
-    # end
+    it 'Instance of Label should could be assign to instance of Item' do
+      red_label = Label.new('Roses', 'Rose red')
+      test_item.label = red_label
+      expect(red_label.items.include?(test_item)).to eq true
+      sky_label = Label.new('Sky', 'Sky blue')
+      test_item.label = sky_label
+      expect(sky_label.items.include?(test_item)).to eq true
+    end
 
     it 'Instance of Author should could be assign to instance of Item' do
       author1 = Author.new('Praises', 'Tula')

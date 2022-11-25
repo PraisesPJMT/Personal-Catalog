@@ -1,5 +1,4 @@
-require_relative '../author'
-require_relative '../game'
+require_relative '../helper'
 
 describe Author do
   before :each do

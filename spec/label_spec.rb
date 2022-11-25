@@ -1,4 +1,4 @@
-require_relative '../label'
+require_relative '../helper'
 
 describe 'Unit Tests for Label Class' do
   before :each do
@@ -13,10 +13,6 @@ describe 'Unit Tests for Label Class' do
     it 'should not be an instance of Item' do
       expect(@label).not_to be_instance_of Item
     end
-
-    # it 'should be a kind of Item' do
-    #   expect(@label).to be_kind_of Item
-    # end
   end
 
   context 'title' do

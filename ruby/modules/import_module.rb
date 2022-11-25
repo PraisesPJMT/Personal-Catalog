@@ -1,11 +1,4 @@
-require 'json'
-require 'fileutils'
-require_relative 'music_album'
-require_relative 'game'
-require_relative 'book'
-require_relative 'genre'
-require_relative 'author'
-require_relative 'label'
+require_relative '../../helper'
 
 module Imports
   def import_music_albums

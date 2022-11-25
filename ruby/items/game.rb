@@ -1,5 +1,4 @@
-require './item'
-require 'date'
+require_relative '../../helper'
 
 # create game class
 class Game < Item

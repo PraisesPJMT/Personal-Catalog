@@ -1,4 +1,4 @@
-require_relative '../game'
+require_relative '../helper'
 
 describe Game do
   before :each do

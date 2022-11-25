@@ -1,4 +1,4 @@
-require_relative 'app'
+require_relative 'helper'
 
 def main
   puts 'Welcome to the Personal Catalogue App!'

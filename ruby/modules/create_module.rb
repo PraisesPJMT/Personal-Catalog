@@ -1,9 +1,4 @@
-require_relative 'music_album'
-require_relative 'game'
-require_relative 'book'
-require_relative 'genre'
-require_relative 'author'
-require_relative 'label'
+require_relative '../../helper'
 
 module Create
   def create_music_album
@@ -74,41 +69,3 @@ module Create
     puts '----------------------------------------------'
   end
 end
-
-# module VerifyAssociates
-#   def verify_author(f_param, s_param)
-#     new_author = nil
-#     if @authors.length.positive?
-#       @authors.each do |ath|
-#         new_author = f_param == ath.first_name && s_param == ath.last_name ? genre : Author.new(f_param, s_param)
-#       end
-#     else
-#       new_author = Author.new(s_param, s_param)
-#     end
-#     new_author
-#   end
-#
-#   def verify_label(title, color)
-#     new_label = nil
-#     if @labels.length.positive?
-#       @labels.each do |label|
-#         new_label = title == label.title && color == label.color ? label : Label.new(title, color)
-#       end
-#     else
-#       new_label = Label.new(title, color)
-#     end
-#     new_label
-#   end
-#
-#   def verify_genre(name)
-#     new_genre = nil
-#     if @genres.length.positive?
-#       @genres.each do |genre|
-#         new_genre = name == genre.name ? genre : Genre.new(name)
-#       end
-#     else
-#       new_genre = Genre.new(name)
-#     end
-#     new_genre
-#   end
-# end
