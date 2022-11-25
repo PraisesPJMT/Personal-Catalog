@@ -28,4 +28,8 @@ describe Game do
       @game.publish_date.should eql "2015-05-15"
     end
   end
+
+  it "tests the private method directly" do
+    @game.send(:can_be_archived?).should eql false
+  end
 end
