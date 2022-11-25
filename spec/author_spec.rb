@@ -1,12 +1,12 @@
 require_relative '../author'
 require_relative '../game'
 
-describe Author do 
+describe Author do
   before :each do
-    @author = Author.new "Jimmy", "Cruxland"
+    @author = Author.new 'Jimmy', 'Cruxland'
   end
 
-  describe "#new" do
+  describe '#new' do
     it 'returns a new instance of Author object' do
       @author.should be_an_instance_of Author
     end
@@ -16,21 +16,21 @@ describe Author do
     end
   end
 
-  describe "#first_name" do
+  describe '#first_name' do
     it 'returns the correct first name' do
-      @author.first_name.should eql "Jimmy"
-    end
-  end 
-
-  describe "#last_name" do
-    it 'returns the correct last name' do
-      @author.last_name.should eql "Cruxland"
+      @author.first_name.should eql 'Jimmy'
     end
   end
 
-  describe "#add_items" do
+  describe '#last_name' do
+    it 'returns the correct last name' do
+      @author.last_name.should eql 'Cruxland'
+    end
+  end
+
+  describe '#add_items' do
     it 'adds a new item to the author' do
-      game = Game.new 2, "2019-03-09", "2015-05-15"
+      game = Game.new 2, '2019-03-09', '2015-05-15'
       @author.add_item game
       @author.items.should include game
     end
