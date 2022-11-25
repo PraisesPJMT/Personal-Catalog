@@ -1,10 +1,25 @@
--- Creating a database called 'catalog_of_things'
+--create database catalo_of_things
 CREATE DATABASE catalog_of_things;
 
 CREATE TABLE genre(
     id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     name VARCHAR(100)
 );
+
+---Label table--
+CREATE TABLE label (
+	id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+	title TEXT,
+	color TEXT
+);
+
+-- authors table
+CREATE TABLE author (
+ id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+ first_name VARCHAR(150) NOT NULL,
+ last_name VARCHAR(150) NOT NULL,
+);
+
 
 CREATE TABLE music_album(
     id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -14,7 +29,7 @@ CREATE TABLE music_album(
     name    VARCHAR(100),
     publish_date  DATE,
     archived      BOOLEAN,
-    on_spotify VARCHAR(100),
+    on_spotify    BOOLEAN
 
     CONSTRAINT fk_genre_id FOREIGN KEY(genre_id) REFERENCES genre(id),
 
@@ -22,37 +37,25 @@ CREATE TABLE music_album(
 
     CONSTRAINT fk_label_id FOREIGN KEY(label_id) REFERENCES label(id)
 );
---  create a games table
+--games table
 CREATE TABLE games (
  id SERIAL PRIMARY KEY,
  multiplayer INT,
+ genre_id      INT,
+ author_id     INT,
+ label_id      INT,
  last_played_at DATE NOT NULL,
- item_id INT REFERENCES item(id)
  publish_date DATE NOT NULL,
  archived BOOLEAN
 );
 
--- create authors table
-CREATE TABLE authors (
- id SERIAL PRIMARY KEY,
- first_name VARCHAR(150) NOT NULL,
- last_name VARCHAR(150) NOT NULL,
- item_id INT REFERENCES item(id)
-);
-
-
----create Book class table--
+---Book class table--
 CREATE TABLE book (
   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  item_id INT FOREIGN KEY REFERENCES item(id),
+  author_id INT FOREIGN KEY REFERENCES author(id),
+  genre_id INT FOREIGN KEY REFERENCES genre(id),
+  label_id INT FOREIGN KEY REFERENCES label(id),
   publisher TEXT,
   cover_state TEXT,
-);
-
----create Label table--
-CREATE TABLE label (
-	id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  item_id INT FOREIGN KEY REFERENCES item(id),
-	title TEXT,
-	color TEXT
+  archived BOOLEAN
 );
