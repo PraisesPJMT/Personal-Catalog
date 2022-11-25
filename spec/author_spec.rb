@@ -7,7 +7,7 @@ describe Author do
 
   describe '#new' do
     it 'returns a new instance of Author object' do
-      @author.should be_an_instance_of Author
+      expect(@author).to be_an_instance_of Author
     end
 
     it 'throws an ArgumentError when given fewer than 2 parameters' do
@@ -17,13 +17,13 @@ describe Author do
 
   describe '#first_name' do
     it 'returns the correct first name' do
-      @author.first_name.should eql 'Jimmy'
+      expect(@author.first_name).to eql 'Jimmy'
     end
   end
 
   describe '#last_name' do
     it 'returns the correct last name' do
-      @author.last_name.should eql 'Cruxland'
+      expect(@author.last_name).to eql 'Cruxland'
     end
   end
 
@@ -31,7 +31,7 @@ describe Author do
     it 'adds a new item to the author' do
       game = Game.new 'God of War', 2, '2019-03-09', '2015-05-15'
       @author.add_item game
-      @author.items.should include game
+      expect(@author.items).to include game
     end
   end
 end

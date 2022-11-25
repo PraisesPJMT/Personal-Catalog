@@ -46,13 +46,13 @@ describe Item do
     end
 
     it 'Changing @id variable of Item instance should raise and NoMethodError error' do
-      expect { test_item.id = 12 }.to raise_error
-      expect { test_item.id = 678 }.to raise_error
+      expect { test_item.id = 12 }.to raise_error NoMethodError
+      expect { test_item.id = 678 }.to raise_error NoMethodError
     end
 
     it 'Changing @archived variable of Item instance should raise and NoMethodError error' do
-      expect { test_item.archived = false }.to raise_error
-      expect { test_item.archived = true }.to raise_error
+      expect { test_item.archived = false }.to raise_error NoMethodError
+      expect { test_item.archived = true }.to raise_error NoMethodError
     end
   end
 
@@ -64,9 +64,9 @@ describe Item do
     end
 
     it 'Accessing #can_be_archived? method of Item instance should raise and NoMethodError error' do
-      expect { test_item.can_be_archived? }.to raise_error
+      expect { test_item.can_be_archived? }.to raise_error NoMethodError
       test_item.publish_date = '2012-02-16'
-      expect { test_item.can_be_archived? }.to raise_error
+      expect { test_item.can_be_archived? }.to raise_error NoMethodError
     end
   end
 

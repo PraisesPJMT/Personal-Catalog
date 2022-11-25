@@ -34,8 +34,8 @@ describe Genre do
     end
 
     it 'Changing @id variable of Genre instance should raise and NoMethodError error' do
-      expect { test_genre.id = 12 }.to raise_error
-      expect { test_genre.id = 678 }.to raise_error
+      expect { test_genre.id = 12 }.to raise_error(NoMethodError)
+      expect { test_genre.id = 678 }.to raise_error(NoMethodError)
     end
   end
 

@@ -60,8 +60,8 @@ describe MusicAlbum do
     end
 
     it 'Changing @id variable of MusicAlbum instance should raise and NoMethodError error' do
-      expect { music_album.id = 12 }.to raise_error
-      expect { music_album.id = 678 }.to raise_error
+      expect { music_album.id = 12 }.to raise_error NoMethodError
+      expect { music_album.id = 678 }.to raise_error NoMethodError
     end
   end
 
@@ -73,9 +73,9 @@ describe MusicAlbum do
     end
 
     it 'Accessing #can_be_archived? method of MusicAlbum instance should raise and NoMethodError error' do
-      expect { music_album.can_be_archived? }.to raise_error
+      expect { music_album.can_be_archived? }.to raise_error NoMethodError
       music_album.publish_date = '2012-02-16'
-      expect { music_album.can_be_archived? }.to raise_error
+      expect { music_album.can_be_archived? }.to raise_error NoMethodError
     end
   end
 
