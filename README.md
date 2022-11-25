@@ -18,7 +18,7 @@
 
 > This project implemented a console app that will help you to keep a 
 > record of different types of things you own: books, music albums, and games. 
-> Everything was based on the UML class diagram presented below. 
+> Everything was based on the [UML class diagram](https://github.com/microverseinc/curriculum-ruby/blob/main/group-capstone/images/catalog_of_my_things.png). 
 > The data are stored in JSON files. A database was also prepared with 
 > tables structure analogical to the console app program's class structure.
 
@@ -94,7 +94,7 @@ Install this project with:
 ### Usage
 To run the project, execute the following command:
 ```sh
-  ruby solver.rb
+  ruby main.rb
 ```
 ### Run tests
 In order to run unit tests on the local machine Rspec gem should be installed
