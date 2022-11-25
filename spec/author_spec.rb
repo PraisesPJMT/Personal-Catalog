@@ -10,6 +10,10 @@ describe Author do
     it 'returns a new instance of Author object' do
       @author.should be_an_instance_of Author
     end
+
+    it 'throws an ArgumentError when given fewer than 2 parameters' do
+      expect { Author.new('Shaq') }.to raise_exception ArgumentError
+    end
   end
 
   describe "#first_name" do
