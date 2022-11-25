@@ -56,3 +56,4 @@ CREATE TABLE authors (
  last_name VARCHAR(150) NOT NULL,
  item_id INT REFERENCES item(id)
 );
+
