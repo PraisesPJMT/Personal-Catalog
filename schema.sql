@@ -1,18 +1,3 @@
----create Book class table--
-CREATE TABLE book (
-  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  item_id INT FOREIGN KEY REFERENCES item(id),
-  publisher TEXT,
-  cover_state TEXT,
-);
-
----create Label table--
-CREATE TABLE label (
-	id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  item_id INT FOREIGN KEY REFERENCES item(id),
-	title TEXT,
-	color TEXT
-);
 -- Creating a database called 'catalog_of_things'
 CREATE DATABASE catalog_of_things;
 
@@ -55,3 +40,19 @@ CREATE TABLE authors (
  item_id INT REFERENCES item(id)
 );
 
+
+---create Book class table--
+CREATE TABLE book (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  item_id INT FOREIGN KEY REFERENCES item(id),
+  publisher TEXT,
+  cover_state TEXT,
+);
+
+---create Label table--
+CREATE TABLE label (
+	id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  item_id INT FOREIGN KEY REFERENCES item(id),
+	title TEXT,
+	color TEXT
+);
