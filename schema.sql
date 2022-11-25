@@ -1,47 +1,13 @@
--- Creating a database called 'catalog_of_things'
-CREATE DATABASE catalog_of_things;
-
-CREATE TABLE genre(
-    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    name VARCHAR(100)
+CREATE TABLE item (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  genre TEXT,
+  author TEXT,
+  label TEXT,
+  publish_date DATE,
+  archived BOOLEAN,
 );
 
-CREATE TABLE music_album(
-    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    genre_id      INT,
-    author_id     INT,
-    label_id      INT,
-    name    VARCHAR(100),
-    publish_date  DATE,
-    archived      BOOLEAN,
-    on_spotify VARCHAR(100),
-
-    CONSTRAINT fk_genre_id FOREIGN KEY(genre_id) REFERENCES genre(id),
-
-    CONSTRAINT fk_author_id FOREIGN KEY(author_id) REFERENCES author(id),
-
-    CONSTRAINT fk_label_id FOREIGN KEY(label_id) REFERENCES label(id)
-);
---  create a games table
-CREATE TABLE games (
- id SERIAL PRIMARY KEY,
- multiplayer INT,
- last_played_at DATE NOT NULL,
- item_id INT REFERENCES item(id)
- publish_date DATE NOT NULL,
- archived BOOLEAN
-);
-
--- create authors table
-CREATE TABLE authors (
- id SERIAL PRIMARY KEY,
- first_name VARCHAR(150) NOT NULL,
- last_name VARCHAR(150) NOT NULL,
- item_id INT REFERENCES item(id)
-);
-
-
----create Book class table--
+-- Book class table
 CREATE TABLE book (
   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   item_id INT FOREIGN KEY REFERENCES item(id),
@@ -49,10 +15,43 @@ CREATE TABLE book (
   cover_state TEXT,
 );
 
----create Label table--
+-- Label class table
 CREATE TABLE label (
 	id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   item_id INT FOREIGN KEY REFERENCES item(id),
 	title TEXT,
 	color TEXT
+);
+
+-- Create a Game class table
+CREATE TABLE game (
+  id SERIAL PRIMARY KEY ,
+  item_id INT FOREIGN KEY REFERENCES item(id),
+  multiplayer VARCHAR,
+  last_played_at DATE,
+  publish_date DATE,
+);
+
+-- Author class table
+CREATE TABLE author (
+	id SERIAL PRIMARY KEY,
+  item_id INT FOREIGN KEY REFERENCES item(id),
+	first_name VARCHAR,
+	last_name VARCHAR
+);
+
+-- Genre class table
+CREATE TABLE genre (
+  id SERIAL PRIMARY KEY,
+  item_id INT FOREIGN KEY REFERENCES item(id),
+  name VARCHAR
+);
+
+-- Music Album class table
+CREATE TABLE music_album (
+  id SERIAL PRIMARY KEY,
+  item_id INT FOREIGN KEY REFERENCES item(id),
+  on_spotify BOOLEAN,
+  publish_date DATE,
+  archived BOOLEAN,
 );
