@@ -64,3 +64,4 @@ CREATE TABLE music_album(
 
     CONSTRAINT fk_label_id FOREIGN KEY(label_id) REFERENCES label(id)
 );
+
