@@ -12,11 +12,7 @@ describe Genre do
   end
 
   context 'Instance variables should match arguments for created Genre:' do
-    test_genre = Genre.new('Pop', 25)
-    it 'Id attribute should match Genre id argument' do
-      expect(test_genre.id).to eq 25
-    end
-
+    test_genre = Genre.new('Pop')
     it 'Name instance variable should match Genre name argument' do
       expect(test_genre.name).to eq 'Pop'
     end

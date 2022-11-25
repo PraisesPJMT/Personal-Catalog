@@ -1,12 +1,11 @@
 require_relative './item'
 require 'date'
 
-class Label < Item
-  attr_accessor :title, :color, :items
-  attr_reader :id, :publish_date
+class Label
+  attr_accessor :title, :color
+  attr_reader :id, :items
 
   def initialize(title, color)
-    super(id = Random.rand(1..1000))
     @id = id
     @title = title
     @color = color

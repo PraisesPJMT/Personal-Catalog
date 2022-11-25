@@ -2,7 +2,7 @@ require_relative '../book'
 
 describe 'Unit Tests for Book Class' do
   before :each do
-    @book = Book.new('MyPublisher', 'bad', '1991/05/21')
+    @book = Book.new('Software Development', 'MyPublisher', 'bad', '1991/05/21')
   end
 
   context 'initialize object' do
