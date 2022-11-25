@@ -1,5 +1,4 @@
-require_relative '../author'
-require_relative '../game'
+require_relative '../helper'
 
 describe Author do
   before :each do
@@ -30,7 +29,7 @@ describe Author do
 
   describe '#add_items' do
     it 'adds a new item to the author' do
-      game = Game.new 2, '2019-03-09', '2015-05-15'
+      game = Game.new 'God of War', 2, '2019-03-09', '2015-05-15'
       @author.add_item game
       @author.items.should include game
     end

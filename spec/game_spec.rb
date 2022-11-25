@@ -1,8 +1,8 @@
-require_relative '../game'
+require_relative '../helper'
 
 describe Game do
   before :each do
-    @game = Game.new 2, '2019-03-09', '2015-05-15'
+    @game = Game.new 'Devil May Cry', 2, '2019-03-09', '2015-05-15'
   end
 
   describe '#new' do

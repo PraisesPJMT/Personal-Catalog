@@ -1,7 +1,4 @@
-require_relative '../music_album'
-require_relative '../genre'
-require_relative '../author'
-# require_relative '../label'
+require_relative '../helper'
 
 describe MusicAlbum do
   context 'Instance of MusicAlbum could be created:' do
@@ -14,11 +11,7 @@ describe MusicAlbum do
   end
 
   context 'Instance variables should match arguments for created MusicAlbum:' do
-    music_album = MusicAlbum.new(false, "Everything I Don't Say", '2022-11-21', 25)
-    it 'Id attribute should match MusicAlbum id argument' do
-      expect(music_album.id).to eq 25
-    end
-
+    music_album = MusicAlbum.new(false, "Everything I Don't Say", '2022-11-21')
     it 'Name attribute should match MusicAlbum name argument' do
       expect(music_album.name).to eq "Everything I Don't Say"
     end
@@ -97,14 +90,14 @@ describe MusicAlbum do
       expect(rock_genre.items.include?(music_album)).to eq true
     end
 
-    # it 'Instance of Label should could be assign to instance of MusicAlbum' do
-    #   red_label = Label.new('Roses', 'Rose red')
-    #   music_album.label = red_label
-    #   expect(red_label.items.include?(music_album)).to eq true
-    #   sky_label = Label.new('Sky', 'Sky blue')
-    #   music_album.label = sky_label
-    #   expect(sky_label.items.include?(music_album)).to eq true
-    # end
+    it 'Instance of Label should could be assign to instance of MusicAlbum' do
+      red_label = Label.new('Roses', 'Rose red')
+      music_album.label = red_label
+      expect(red_label.items.include?(music_album)).to eq true
+      sky_label = Label.new('Sky', 'Sky blue')
+      music_album.label = sky_label
+      expect(sky_label.items.include?(music_album)).to eq true
+    end
 
     it 'Instance of Author should could be assign to instance of MusicAlbum' do
       author1 = Author.new('Praises', 'Tula')

@@ -1,4 +1,4 @@
---create database catalo_of_things
+--create database catalog_of_things
 CREATE DATABASE catalog_of_things;
 
 CREATE TABLE genre(
@@ -7,14 +7,14 @@ CREATE TABLE genre(
 );
 
 ---Label table--
-CREATE TABLE label (
+CREATE TABLE label(
 	id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
 	title TEXT,
 	color TEXT
 );
 
 -- authors table
-CREATE TABLE author (
+CREATE TABLE author(
  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
  first_name VARCHAR(150) NOT NULL,
  last_name VARCHAR(150) NOT NULL,
@@ -38,19 +38,19 @@ CREATE TABLE music_album(
     CONSTRAINT fk_label_id FOREIGN KEY(label_id) REFERENCES label(id)
 );
 --games table
-CREATE TABLE games (
+CREATE TABLE games(
  id SERIAL PRIMARY KEY,
  multiplayer INT,
- genre_id      INT,
- author_id     INT,
- label_id      INT,
+ author_id INT FOREIGN KEY REFERENCES author(id),
+ genre_id INT FOREIGN KEY REFERENCES genre(id),
+ label_id INT FOREIGN KEY REFERENCES label(id),
  last_played_at DATE NOT NULL,
  publish_date DATE NOT NULL,
  archived BOOLEAN
 );
 
 ---Book class table--
-CREATE TABLE book (
+CREATE TABLE book(
   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   author_id INT FOREIGN KEY REFERENCES author(id),
   genre_id INT FOREIGN KEY REFERENCES genre(id),

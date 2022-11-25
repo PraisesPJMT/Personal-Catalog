@@ -1,12 +1,13 @@
-require_relative 'item'
+require_relative '../../helper'
 
 class MusicAlbum < Item
   attr_accessor :on_spotify, :name
 
-  def initialize(on_spotify, name, publish_date, id = Random.rand(1..1_000))
-    super(publish_date, id)
+  def initialize(on_spotify, name, publish_date)
+    super(publish_date)
     @name = name
     @on_spotify = on_spotify
+    @archived = can_be_archived?
   end
 
   private
